@@ -12,7 +12,8 @@ export PATH=${PATH}:/usr/local/mysql/bin/  #mysql path
 
 
 #ZSH_THEME="robbyrussell"
-ZSH_THEME="powerlevel9k/powerlevel9k"
+#ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME=powerlevel10k/powerlevel10k
 #ZSH_THEME="random"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -103,9 +104,39 @@ source $ZSH/oh-my-zsh.sh
 
 
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /Users/in-tmtushar/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+export NVM_DIR="$HOME/.nvm" #node version manager 
+# export PATH="$HOME/miniconda3/bin:$PATH"  # commented out by conda initialize #python virtual env manager
+source $(brew --prefix nvm)/nvm.sh
+
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs newline)
+
+export LC_ALL=en_US.UTF-8
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+
+alias ys="yarn start"
+alias ya="yarn add"
+alias y="yarn"
+alias yt="yarn test"
+alias yl="yarn lint"
+alias ylf="yarn lint --fix"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/in-tmtushar/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/in-tmtushar/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/in-tmtushar/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/in-tmtushar/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

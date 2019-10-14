@@ -22,3 +22,10 @@ map <C-y> "*y"
 map <C-o> :NERDTreeToggle<CR>   
 imap cf const f = function () {<Esc>o<Esc>mzo}<Esc>'zi
 imap desc describe( <esc>mfi'fun_name', function () {<cr><tab>it('expectation', function () {<cr><cr><tab> });<cr>}); <esc>`f
+
+set mouse=a   "enable the inside vim and stops scroll for full terminal window
+if has("mouse_sgr")
+    set ttymouse=sgr
+else
+    set ttymouse=xterm2
+  end
