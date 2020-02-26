@@ -2,19 +2,17 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
+
 export ZSH="${HOME}/.oh-my-zsh"
 export PATH=${PATH}:/usr/local/mysql/bin/  #mysql path
-
+export PATH=${PATH}:${HOME}/miniconda3/bin
+export PATH=${PATH}:${HOME}/.ghcup/ghc/8.6.5
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-
-
-#ZSH_THEME="robbyrussell"
 #ZSH_THEME="powerlevel9k/powerlevel9k"
 ZSH_THEME=powerlevel10k/powerlevel10k
-#ZSH_THEME="random"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -29,6 +27,7 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
+
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
@@ -73,9 +72,10 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git forgit)
 
 source $ZSH/oh-my-zsh.sh
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -106,7 +106,7 @@ source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-export NVM_DIR="$HOME/.nvm" #node version manager 
+export NVM_DIR="$HOME/.nvm" #node version manager
 # export PATH="$HOME/miniconda3/bin:$PATH"  # commented out by conda initialize #python virtual env manager
 source $(brew --prefix nvm)/nvm.sh
 
@@ -125,17 +125,25 @@ alias yt="yarn test"
 alias yl="yarn lint"
 alias ylf="yarn lint --fix"
 
+alias lb="lein rebl"
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('~/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/tushar/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "~/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "~/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/Users/tushar/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/tushar/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="~/miniconda3/bin:$PATH"
+        export PATH="/Users/tushar/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
+[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
